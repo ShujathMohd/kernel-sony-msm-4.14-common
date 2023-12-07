@@ -1,10 +1,22 @@
 set -e
 # Check if mkdtimg tool exist
-if [ ! -f "$MKDTIMG" ]; then
-    echo "mkdtimg: File not found!"
-    echo "Building mkdtimg"
-    export ALLOW_MISSING_DEPENDENCIES=true
-    $ANDROID_ROOT/build/soong/soong_ui.bash --make-mode mkdtimg
+mkdtimg_path="../../../../prebuilts/misc/linux-x86/libufdt"
+mkditimg_git_repo="https://github.com/LineageOS/android_prebuilts_tools-lineage.git"
+
+# Check if the folder exists
+if [ -d "$mkdtimg_path" ]; then
+    echo "Prebuilt mkdtimg exists. Proceeding to the next step."
+else
+    echo "Prebuilt mkdtimg does not exist. Cloning Git repository from Lineage OS."
+    git clone "$mkditimg_git_repo" ../../../../prebuilts/misc
+
+    # Check if the clone was successful
+    if [ $? -eq 0 ]; then
+        echo "Git clone successful. Proceeding to the next step."
+    else
+        echo "Git clone failed. Please check your internet connection and try again."
+        exit 1
+    fi
 fi
 
 cd "$KERNEL_TOP"/kernel

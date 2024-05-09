@@ -6,7 +6,7 @@
 export CLANG=$ANDROID_ROOT/prebuilts/clang/host/linux-x86/clang-r487747c/bin/
 
 # Build command
-BUILD_ARGS=""
+BUILD_ARGS="LLVM=1 LLVM_IAS=1"
 
 PATH=$CLANG:$PATH
 # source shared parts

@@ -2,6 +2,7 @@ set -e
 # Check if mkdtimg tool exist
 mkdtimg_path="../../../../prebuilts/misc/linux-x86/libufdt"
 mkditimg_git_repo="https://github.com/LineageOS/android_prebuilts_tools-lineage.git"
+MKDTIMG="../../../../prebuilts/misc/linux-x86/libufdt/mkdtimg"
 
 # Check if the folder exists
 if [ -d "$mkdtimg_path" ]; then

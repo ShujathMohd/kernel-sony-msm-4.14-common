@@ -3,7 +3,7 @@
 . "${0%/*}/build_shared_vars.sh"
 
 
-export CLANG=$ANDROID_ROOT/prebuilts/clang/host/linux-x86/clang-r487747c/bin/
+export CLANG=$ANDROID_ROOT/prebuilts/clang/host/linux-x86/clang-r522817/bin/
 
 # Build command
 BUILD_ARGS="LLVM=1 LLVM_IAS=1"
